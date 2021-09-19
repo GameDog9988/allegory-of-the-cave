@@ -8,6 +8,10 @@ import ChainAudio from "../static/audio/Chain_On_Metal_Post.mp3";
 
 console.log(ChainAudio);
 
+function startPlayback(music) {
+  music.play();
+}
+
 function audio() {
   const chainAudio = new Audio("/audio/Chain_On_Metal_Post.mp3");
   console.log(chainAudio);
@@ -37,7 +41,10 @@ function audio() {
           console.log(spaceMusic);
         })
         .catch(() => {
+          const playButton = document.querySelector("#playButton");
           spaceMusic.controls = true;
+          playButton.addEventListener("click", startPlayback(spaceMusic));
+          playButton.hidden = false;
         });
     }
   }, 5000);
