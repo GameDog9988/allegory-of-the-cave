@@ -16,6 +16,7 @@ function audio() {
       })
       .catch(() => {
         chainAudio.controls = true;
+        chainAudio.play();
       });
   }
 
