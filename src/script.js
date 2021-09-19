@@ -5,13 +5,8 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 
-function startPlayback(music) {
-  music.play();
-}
-
 function audio() {
   const chainAudio = new Audio("/audio/Chain_On_Metal_Post.mp3");
-  console.log(chainAudio);
   const chainPromise = chainAudio.play();
 
   if (chainPromise !== undefined) {
@@ -40,7 +35,9 @@ function audio() {
         .catch(() => {
           const playButton = document.querySelector("#playButton");
           spaceMusic.controls = true;
-          playButton.addEventListener("click", startPlayback(spaceMusic));
+          playButton.addEventListener("click", () => {
+            spaceMusic.play();
+          });
           playButton.hidden = false;
         });
     }
