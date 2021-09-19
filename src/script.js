@@ -4,18 +4,44 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import ChainAudio from "../static/audio/Chain_On_Metal_Post.mp3";
 
-const chainAudio = new Audio("/audio/Chain_On_Metal_Post.mp3");
-chainAudio.play();
+console.log(ChainAudio);
 
-const spaceMusic = new Audio("/audio/Space_Song.mp3");
-spaceMusic.volume = 0.75;
-spaceMusic.loop = true;
+function audio() {
+  const chainAudio = new Audio("/audio/Chain_On_Metal_Post.mp3");
+  console.log(chainAudio);
+  const chainPromise = chainAudio.play();
 
-setTimeout(() => {
-  chainAudio.pause();
-  spaceMusic.play();
-}, 5000);
+  if (chainPromise !== undefined) {
+    chainPromise
+      .then(() => {
+        console.log(chainAudio);
+      })
+      .catch(() => {
+        chainAudio.controls = true;
+      });
+  }
+
+  const spaceMusic = new Audio("/audio/Space_Song.mp3");
+  spaceMusic.volume = 0.75;
+  spaceMusic.loop = true;
+
+  setTimeout(() => {
+    chainAudio.pause();
+    const spacePromise = spaceMusic.play();
+
+    if (spacePromise !== undefined) {
+      spacePromise
+        .then(() => {
+          console.log(spaceMusic);
+        })
+        .catch(() => {
+          spaceMusic.controls = true;
+        });
+    }
+  }, 5000);
+}
 
 // Loading
 const textureLoader = new THREE.TextureLoader();
@@ -162,4 +188,5 @@ const tick = () => {
   window.requestAnimationFrame(tick);
 };
 
+audio();
 tick();

@@ -43,7 +43,14 @@ module.exports = {
 
       {
         test: /\.mp3$/,
-        loader: "file-loader",
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "assets/audio/",
+            },
+          },
+        ],
       },
 
       // Images
