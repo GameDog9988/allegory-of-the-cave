@@ -1,5 +1,6 @@
 # Allegory of the Cave
-Interactive 3D audiovisual exerience made using JavaScript with the help of Three.js. Made for Pitt's ENGCMP1130 class as part of a assignment to create a project that encompasses Plato's Allegory of the Cave story.
+Interactive 3D audiovisual exerience made using JavaScript with the help of Three.js. 
+Made for Pitt's ENGCMP1130 class as part of an assignment to create a project that encompasses Plato's Allegory of the Cave story.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/51346343/147144635-7eaeead4-2450-40b9-90b2-f0da6dd75995.png" alt="allegory of the cave project screenshot">
