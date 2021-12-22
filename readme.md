@@ -7,10 +7,10 @@ Made for Pitt's ENGCMP1130 class as part of an assignment to create a project th
 </p>
 
 ## Tools Used
-- Next.js
-- GSAP
-- Framer Motion
-- Sass
+- HTML
+- CSS
+- JavaScript
+- Three.js
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
